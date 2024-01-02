@@ -10,3 +10,10 @@ public class NumberPrinter implements Runnable{
         + ": Time : " + System.currentTimeMillis());
     }
 }
+
+// Synchronisation -> Adder-Subtractor Problem, Mutex, Semaphore, Synchronised keyword
+// Callable, Future
+
+// 27, 28, 29 -> Wed, Thurs, Fri
+// 24 - 26 Scaler holiday
+// 30 -1 Scaler holiday

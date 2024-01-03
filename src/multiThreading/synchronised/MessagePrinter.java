@@ -16,4 +16,8 @@ public class MessagePrinter implements Runnable{
             System.out.println("**************");
         }
     }
+
+    public int[] work(){
+        return new int[]{1,2};
+    }
 }

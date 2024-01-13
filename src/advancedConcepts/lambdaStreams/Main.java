@@ -1,5 +1,8 @@
 package advancedConcepts.lambdaStreams;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 /*
@@ -90,5 +93,57 @@ public class Main {
         }
 
          */
+/*
+        //enhanced for loop
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+        //enhanced for loop, not forEach
+        for(int i : list){ // variable to hold the data one by one : collection
+            System.out.println(i);
+        }
+
+         */
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        //print only even numbers
+//        for(int i : list){
+//            System.out.println(i);
+//        }
+        // Streams -> methods to do stuff
+        //collection/map . stream()
+        // FOREACH
+//        list.stream().forEach(i -> {
+//            if(i%2 == 0){
+//                System.out.println(i);
+//            }
+//        });
+//
+//        list.stream().forEach(i -> System.out.println(i));
+
+        //         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        // Square every number, and check if the result is even, if yes, print the square
+
+//        for(int i=0;i<list.size();i++){
+//            int sq = list.get(i) * list.get(i);
+//            if(sq % 2 == 0){
+//                System.out.println(list.get(i) * list.get(i));
+//            }
+//        }
+
+        //make all the values square of the list, and print the squared values
+//        list.stream().forEach(e -> System.out.println(e * e ));
+//        System.out.println("Print list: " + list); // values of the list are never changed
+
+        // map -> map the value coming in the stream to something // update
+        list.stream() // 1 2 3 4 5
+                .map(e -> (e * e)/2)
+                .filter(e -> e%2==0)
+                .forEach(e -> System.out.println(e));
+        System.out.println("Print list: " + list);
+        int i = 10;
+
+        //lambda does not need return keyword for a single line logic
+        Calculator s = (x) -> x*x;
     }
 }

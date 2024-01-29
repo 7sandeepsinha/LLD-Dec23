@@ -7,7 +7,7 @@ public class Main {
         Student s = Student.builder()
                 .universityName("IIIITTTT")
                 .phoneNumber("12344235")
-                .age(23)
+                .age(12)
                 .gradYear(2021)
                 .name("Prateek")
                 .id(1)

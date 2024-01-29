@@ -92,4 +92,44 @@ public class Student implements Prototype<Student> {
     public void setModuleEndDate(String moduleEndDate) {
         this.moduleEndDate = moduleEndDate;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getYearOfEnrollment() {
+        return yearOfEnrollment;
+    }
+
+    public String getBatchName() {
+        return batchName;
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public String getModuleStartDate() {
+        return moduleStartDate;
+    }
+
+    public String getModuleSchedule() {
+        return moduleSchedule;
+    }
+
+    public String getModuleEndDate() {
+        return moduleEndDate;
+    }
 }

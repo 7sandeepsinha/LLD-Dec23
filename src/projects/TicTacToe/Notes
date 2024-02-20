@@ -1,0 +1,13 @@
+Controller -> Point of contact from outside. All clients/users/etc will
+make actions or do something in our code base via controller.
+
+Checking a winner,
+Making a move,
+Reply the game,
+Undo things,
+Create/Start a game.
+
+All the above things will be executed via controller.
+
+
+

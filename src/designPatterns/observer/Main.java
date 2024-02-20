@@ -10,9 +10,12 @@ public class Main {
         amazon.addOrderPlaceSubscriber(invoiceGeneratorService);
 
         amazon.orderPlaced();
-
-        amazon.removeOrderPlaceSubscriber(invoiceGeneratorService);
-
-        amazon.orderPlaced();
     }
 }
+/*
+    1. RainWaterTrapping using strategy
+    2. Singleton for calculators in strategy
+    3. Singleton for amazon in observer
+
+    ** Double check singleton
+ */

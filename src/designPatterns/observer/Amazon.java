@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //publisher
-public class Amazon {
+public class Amazon { // make the Amazon class singleton as we dont want to maintain multiple lists of subscribers
 
     private List<OrderPlacedSubscriber> orderPlacedSubscribers;
 

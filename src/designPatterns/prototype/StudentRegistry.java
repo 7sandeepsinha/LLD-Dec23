@@ -18,5 +18,7 @@ public class StudentRegistry {
         return studentRegistry.get(batchName);
     }
 
-
+    public void remove(String batchName){
+        studentRegistry.remove(batchName);
+    }
 }

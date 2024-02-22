@@ -1,15 +1,20 @@
 package projects.TicTacToe.controller;
 
 import projects.TicTacToe.model.*;
-import projects.TicTacToe.service.winningStrategy.WinningStrategy;
+import projects.TicTacToe.service.winningStrategy.WinningStrategyFactory;
+import projects.TicTacToe.service.winningStrategy.WinningStrategyName;
 
 import java.util.List;
 
 public class GameController {
 
     //create game will automatically start the game
-    public Game createGame(int dimension, List<Player> players, WinningStrategy winningStrategy){
-        return null;
+    public Game createGame(int dimension, List<Player> players, WinningStrategyName name){
+        return Game.builder()
+                .setDimension(dimension)
+                .setPlayers(players)
+                .setWinningStrategy(WinningStrategyFactory.getWinningStrategy(name, dimension))
+                .build();
     }
 
     public void displayBoard(Game game){
@@ -17,19 +22,15 @@ public class GameController {
     }
 
     public GameStatus getGameStatus(Game game){
-        return null;
-    }
-
-    public Player getWinner(Game game){
-        return null;
+        return game.getGameStatus();
     }
 
     public Move executeMove(Game game, Player player){
-        return null;
+        return player.makeMove(game.getCurrentBoard());
     }
 
     public Player checkWinner(Game game, Move lastMovePlayed){
-        return null;
+        return game.getWinningStrategy().checkWinner(game.getCurrentBoard(), lastMovePlayed);
     }
 
     public Board undoMove(Game game, Move lastPlayedMove){
@@ -39,10 +40,4 @@ public class GameController {
     public void replayGame(Game game){
 
     }
-
-
-
-
-
-
 }

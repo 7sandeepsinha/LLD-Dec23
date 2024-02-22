@@ -1,5 +1,7 @@
 package projects.TicTacToe.model;
 
+import projects.TicTacToe.service.botPlayingStrategy.BotPlayingStrategyFactory;
+
 public class Bot extends Player {
     private BotDifficultyLevel botDifficultyLevel;
 
@@ -10,6 +12,6 @@ public class Bot extends Player {
 
     @Override
     public Move makeMove(Board board){
-        return null;
+        return BotPlayingStrategyFactory.getBotPlayingStrategy().makeMove(board, this);
     }
 }

@@ -16,6 +16,8 @@ public class OrderOneWinningStrategy implements WinningStrategy{
     private List<HashMap<Character, Integer>> colHashMapList; // index in the list will correspond to the col number for hashmap identification
     private HashMap<Character, Integer> leftDiagonal;
     private HashMap<Character, Integer> rightDiagonal;
+    private HashMap<Character, Integer> cornerHashMap;
+
 
     public OrderOneWinningStrategy(int dimension) {
         this.dimension = dimension;
@@ -23,6 +25,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
         colHashMapList = new ArrayList<>();
         rightDiagonal = new HashMap<>();
         leftDiagonal = new HashMap<>();
+        cornerHashMap = new HashMap<>();
         for(int i=0;i<dimension;i++){
             rowHashMapList.add(new HashMap<>());
             colHashMapList.add(new HashMap<>());
@@ -108,10 +111,13 @@ public class OrderOneWinningStrategy implements WinningStrategy{
 
     //TODO : implement this using a hashmap as well, create a hashmap for corners and check.
     private boolean winnerCheckForCorners(List<List<Cell>> matrix, char symbol) {
-        return (matrix.get(0).get(0).getPlayer().getSymbol() == symbol)
-                && (matrix.get(0).get(dimension - 1).getPlayer().getSymbol() == symbol)
-                && (matrix.get(dimension - 1).get(0).getPlayer().getSymbol() == symbol)
-                && (matrix.get(dimension - 1).get(dimension - 1).getPlayer().getSymbol() == symbol);
+        if(cornerHashMap.containsKey(symbol)){
+            cornerHashMap.put(symbol, cornerHashMap.get(symbol)+1);
+            return cornerHashMap.get(symbol) == 4;
+        } else{
+            cornerHashMap.put(symbol, 1);
+        }
+        return false;
     }
 }
 

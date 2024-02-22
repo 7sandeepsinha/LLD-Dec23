@@ -156,6 +156,8 @@ public class Game {
             }
         }
 
+        //TODO: add a validation for dimension, it should be from 3 to 10.
+
         private void validate(){
             validateBotCount();
             validateNumberOfPlayers();

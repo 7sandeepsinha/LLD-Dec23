@@ -39,7 +39,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
         int row = lastMove.getCell().getRow();
         int col = lastMove.getCell().getCol();
 
-        boolean winnerResult = winnerCheckForCorners(board.getMatrix(), symbol)
+        boolean winnerResult = (checkCorner(row, col) && winnerCheckForCorners(board.getMatrix(), symbol))
                 || checkAndUpdateForRowHashMap(row, symbol)
                 || checkAndUpdateForColHashMap(col, symbol)
                 || ( checkLeftDiagonal(row, col) && checkAndUpdateLeftDiagonalHashmap(symbol))
@@ -57,6 +57,15 @@ public class OrderOneWinningStrategy implements WinningStrategy{
 
     private boolean checkRightDiagonal(int row, int col){
         return ((row+col) == (dimension-1));
+    }
+
+    private boolean checkCorner(int row, int col){
+        return (
+                (row==0 && col==0)
+                || (row==0 && col==dimension-1)
+                || (row==dimension-1 && col==0)
+                || (row==dimension-1 && col==dimension-1)
+        );
     }
 
     //TODO: there are multiple duplicate lines of code, try to remove them.

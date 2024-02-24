@@ -11,10 +11,34 @@ All the above things will be executed via controller.
 
 
 TASKS -
-All to do parts of the code
-Undo logic implementation
-Replay logic implementation
+1. All to do parts of the code
+2. Undo logic implementation
+    Basically single step undo, so once a player plays a move, display the board and then
+    ask if the player wants to do undo.
+    If player says Y -> undo the move, go to back previous board state [the actual and internal hashmaps], and ask the player
+    for new row and col for entry
+    If player says N -> move ahead and ask the next player or bot to make the move.
+3. Replay logic implementation
+    Print all the board states with proper details
+    List<Move> => <P1, [0,0]>
+    List<Board> => { X _ _
+                     _ _ _
+                     _ _ _ }
+    REPLAY KA SCREENPLAY
+    Initally board status -> print the empty board
+    Here, Player1 played X on Cell 0,0
+    print the board at this state
+    { X _ _
+      _ _ _
+      _ _ _ }
+    ** add some delay between the prints => Thread.sleep();
+
+BONUS TASK ->
+Draw check implementation ->
+1. List<Move>.size == number of symbols on the board
+2. Total number of symbols == dim*dim
+3. If List<Move>.size() == dim * dim => draw
+4. but we dont need to wait for the entire board to be full to make the game draw,
+implement using the hashmap key count logic.
 
 
-
-BREAK -> 6 mins : 10:27 PM

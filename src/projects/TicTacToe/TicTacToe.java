@@ -37,13 +37,20 @@ public class TicTacToe {
         int playerIndex = -1;
         while(game.getGameStatus().equals(GameStatus.IN_PROGRESS)){
             System.out.println("Current board status");
+            //TODO : add the undo logic, dont ask for undo when board is empty, and dont ask for undo when bot is the player, who played the last move.
             gameController.displayBoard(game);
             playerIndex++;
             playerIndex = playerIndex % players.size();
             Move movePlayed = gameController.executeMove(game, players.get(playerIndex));
+            game.getMoves().add(movePlayed); // add moves
+            game.getBoardStates().add(game.getCurrentBoard()); // add board states
             Player winner = gameController.checkWinner(game, movePlayed);
             if(winner != null){
                 System.out.println("WINNER IS : " + winner.getName());
+                break;
+            }
+            if(game.getMoves().size() == game.getCurrentBoard().getDimension() * game.getCurrentBoard().getDimension()){
+                System.out.println("GAME IS DRAW");
                 break;
             }
         }

@@ -2,3 +2,31 @@ Tasks -
 1. Create the parkingSpot type classes, EVParkingSpot etc.
 2. Full fledged, class diagram for ParkingLot [hint -> if we can create the class diagram from the code]
 3. Schema Design -> tables for the entities -> most important
+
+
+BillCalculation logic ->
+1. Base + Hourly -> base rate + number of hours * hourlyrate
+2. Surge ->
+    baseRate + (number of hours * hourlyrate) => amount
+    total = amount + ( amount * surge )
+    [ how much your parking lot is filled up ]
+    surge -> 0.5 => 50% to 75%
+    surge -> 0.75 => 75% to 90%
+    surge -> 0.9 => 90% to 100%
+
+Tickets that has been generated -> ticketRepository -> active tickets
+total capacity ->
+
+
+ DIY ->
+
+ TicketController -> generateTicket(required info....vehicle, parkingLot etc.)
+ TicketController.generateTicket -> TicketService.generateTicket(....info...)
+
+ TicketService.generateTicket -> spotAllocationStrategy -> spot
+
+ update ticket object with all necessary details
+ save in repo
+ return to user
+
+

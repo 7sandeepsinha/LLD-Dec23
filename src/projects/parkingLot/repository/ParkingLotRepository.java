@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class ParkingLotRepository {
     private Map<Integer, ParkingLot> parkingLotMap; // table
+    private static int idCounter = 0;
 
     public ParkingLotRepository() {
         this.parkingLotMap = new HashMap<>();
@@ -24,6 +25,7 @@ public class ParkingLotRepository {
     }
 
     public void put(ParkingLot parkingLot){
+        parkingLot.setId(++idCounter);
         parkingLotMap.put(parkingLot.getId(), parkingLot);
         System.out.println("ParkingLot has been added successfully");
     }

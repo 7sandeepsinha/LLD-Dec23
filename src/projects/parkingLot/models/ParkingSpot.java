@@ -19,6 +19,16 @@ public class ParkingSpot extends BaseModel{
         this.vehicle = vehicle;
     }
 
+    @Override
+    public String toString() {
+        return "ParkingSpot{" +
+                "number=" + number +
+                ", vehicleType=" + vehicleType +
+                ", parkingSpotStatus=" + parkingSpotStatus +
+                ", vehicle=" + vehicle +
+                '}';
+    }
+
     public int getNumber() {
         return number;
     }

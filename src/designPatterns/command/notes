@@ -1,0 +1,7 @@
+Person invokes the command by pressing button on remote
+Remote.pressButton()
+
+Command call the receiver to execute the final task
+
+Remote -> Command -> Receiver method -> execute the code
+
